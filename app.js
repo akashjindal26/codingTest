@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-// setting api rotuers
+// setting api routers
 const users = require("./routes/users_route");
 app.use("/api", users)
 

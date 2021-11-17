@@ -1,6 +1,6 @@
 var kafka = require('kafka-node');
 
-// creating cosunmer to consume message created by producer
+// creating consumer to consume message created by producer
 const createConsumer = async (req,res,next) => {
     Consumer = kafka.Consumer,
         client = new kafka.KafkaClient(),

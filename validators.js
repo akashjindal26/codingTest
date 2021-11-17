@@ -1,6 +1,6 @@
 const { logger } = require("./logger.js");
 
-// Email Validtion
+// Email Validation
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     return re.test(String(email).toLowerCase());
@@ -19,7 +19,7 @@ function validateEmpty(EmptyField) {
 }
 
 // validation on signup api
-exports.singupValidation = async (req, res, next) => {
+exports.sing_up_Validation = async (req, res, next) => {
 
     // get full url for logger file
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -29,7 +29,7 @@ exports.singupValidation = async (req, res, next) => {
     const mobile = req.body.USER_MOBILE_NO;
     const userName = req.body.USER_NAME;
 
-    // validating the fileds
+    // validating the filed
     var UserMsg = validateEmpty(userName);
     var EmailMsg = validateEmail(email);
     var MobileMsg = validateMobile(mobile);
@@ -46,8 +46,8 @@ exports.singupValidation = async (req, res, next) => {
     }
 }
 
-// validation on signin api
-exports.singinValidation = async (req, res, next) => {
+// validation on sign in api
+exports.sing_in_Validation = async (req, res, next) => {
 
      // get full url for logger file
     var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;

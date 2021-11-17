@@ -2,7 +2,7 @@ const winston = require('winston');
 
 module.exports.logger = winston.createLogger({
     transports: [
-        // creating info lavel for logger file to store logs info
+        // creating info level for logger file to store logs info
         new winston.transports.File({
             level: 'info',
             filename: 'filelog-info.log',

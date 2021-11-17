@@ -34,13 +34,13 @@ exports.signup = async (req, res) => {
           }
           else {
 
-            const createdon = new Date();
-            const modifiedon = new Date();
+            const createdOn = new Date();
+            const modifiedOn = new Date();
 
             // creating new user
-            sql.query("CALL sp_createuser(?,?,?,?,?,?,?,?,?)",
+            sql.query("CALL sp_create_user(?,?,?,?,?,?,?,?,?)",
               [req.body.LEVEL_ID, req.body.USER_NAME, req.body.USER_EMAIL,
-              req.body.USER_MOBILE_NO, createdon, req.body.CREATED_BY, modifiedon,
+              req.body.USER_MOBILE_NO, createdOn, req.body.CREATED_BY, modifiedOn,
               req.body.MODIFIED_BY, hash], (err, result) => {
                 if (err) {
                   res.send({ ERROR_MSG: err });
@@ -55,8 +55,8 @@ exports.signup = async (req, res) => {
 
       }
       else {
-        logger.error("USER ALREADY EXICTED");
-        res.send({ MSG: "USER ALREADY EXICTED" })
+        logger.error("USER ALREADY EXISTED");
+        res.send({ MSG: "USER ALREADY EXISTED" })
 
       }
     }
@@ -65,8 +65,8 @@ exports.signup = async (req, res) => {
 }
 
 
-// login api funcation
-exports.signin = async (req, res) => {
+// login api function
+exports.sign_in = async (req, res) => {
 
   // using logger for this api
   var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
@@ -84,7 +84,7 @@ exports.signin = async (req, res) => {
       if (response[0][0].email == req.body.USER_EMAIL) {
 
 
-        //compare paasword
+        //compare password
         bcrypt.compare(req.body.PASSWORD, response[0][0].password, function (err, result) {
 
           if (err) {
@@ -103,7 +103,7 @@ exports.signin = async (req, res) => {
                 // jwt token store in redis
                 client.SETEX(resp[0][0].email, 3600, JSON.stringify(token));
 
-                logger.info("Login Succesfully login id :" + resp[0][0].id);
+                logger.info("Login Successfully login id :" + resp[0][0].id);
                 res.send({ token: token, User_id: resp[0][0].id })
               }
             })
@@ -150,7 +150,7 @@ exports.verifyUserLogin = (req, res, next) => {
 };
 
 //fetching user profile details
-exports.getprofile = async (req, res) => {
+exports.get_profile = async (req, res) => {
 
   //using logger for this api
   var fullUrl = req.protocol + '://' + req.get('host') + req.originalUrl;
