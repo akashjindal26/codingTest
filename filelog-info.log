@@ -33,3 +33,5 @@
 {"level":"info","message":"http://localhost:8080/api/user","timestamp":"2021-11-17T06:49:51.038Z"}
 {"level":"info","message":"http://localhost:8080/api/user","timestamp":"2021-11-17T06:52:17.475Z"}
 {"level":"info","message":"http://localhost:8080/api/user","timestamp":"2021-11-17T06:52:17.477Z"}
+{"level":"info","message":"SERVER IS RUNNING ON 8080","timestamp":"2021-11-19T10:55:55.948Z"}
+{"level":"info","message":"SERVER IS RUNNING ON 8080","timestamp":"2021-11-19T10:57:03.194Z"}
